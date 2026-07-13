@@ -10,7 +10,7 @@ export const PRODUCTS: Product[] = [
     material: "100% Human Hair",
     type: "Lace Front",
     color: "Platinum Blonde",
-    image: "/src/assets/images/blonde_wig_product_1783981875691.jpg",
+    image: image: "/images/blonde_wig_product_1783981875691.jpg",
     badge: "Best Seller"
   },
   {
@@ -22,7 +22,7 @@ export const PRODUCTS: Product[] = [
     material: "100% Human Hair",
     type: "4x4 Closure",
     color: "Dark Brown with Honey Highlights",
-    image: "/src/assets/images/wavy_highlight_wig_1783982199129.jpg",
+    image: image: "/images/wavy_highlight_wig_1783982199129.jpg",
     badge: "New Arrival"
   },
   {
@@ -34,7 +34,7 @@ export const PRODUCTS: Product[] = [
     material: "100% Virgin Human Hair",
     type: "360 Lace",
     color: "Copper Ginger Auburn",
-    image: "/src/assets/images/copper_straight_wig_1783982209511.jpg",
+    image: image: "/images/copper_straight_wig_1783982209511.jpg",
     badge: "Best Seller"
   },
   {
@@ -57,7 +57,7 @@ export const PRODUCTS: Product[] = [
     material: "100% Virgin Human Hair",
     type: "Full Lace",
     color: "Chocolate Brown",
-    image: "/src/assets/images/chocolate_wavy_wig_1783982220468.jpg",
+    image: image: "/images/chocolate_wavy_wig_1783982220468.jpg",
     badge: "New Arrival"
   },
   {
@@ -207,22 +207,19 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   }
 ];
 
-export const WHATSAPP_NUMBER = "27673598840";
-
 export const getOrderWhatsAppLink = (product: Product) => {
+  const imageUrl = product.image.startsWith('http')
+    ? product.image
+    : `${window.location.origin}${product.image}`;
+
   const text = encodeURIComponent(`Hi! I would like to order:
 👑 Wig: ${product.name}
 🎨 Color: ${product.color}
 📏 Length: ${product.length}
 💰 Price: R${product.price.toLocaleString()}
 
-📷 View Product Image: ${product.image}
+📷 View Product Image: ${imageUrl}
 
 Please send me payment and delivery details. 🙏`);
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
-};
-
-export const getGeneralWhatsAppLink = (customText?: string) => {
-  const text = encodeURIComponent(customText || "Hi! I'm interested in your wigs. Could you please help me find the perfect one? 💕");
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
 };
