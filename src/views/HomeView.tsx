@@ -71,7 +71,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate }) => {
       <section className="relative min-h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/src/assets/images/hero_wig_1783981547711.jpg"
+            src="/images/hero_wig_1783981547711.jpg"
             alt="Premium brown wavy wig styled on mannequin by honeydollarblends"
             className="w-full h-full object-cover object-center"
             referrerPolicy="no-referrer"
